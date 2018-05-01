@@ -1,0 +1,78 @@
+﻿@using Itc.Am.Common.ViewModels
+@using Status = Itc.Am.Common.Models.Status
+@model Itc.Am.Common.ViewModels.VacationVm
+
+<link href="~/css/Vacation.css" rel="stylesheet" />
+    @{
+        Layout = "~/Views/Shared/_Layout_User.cshtml";
+    }
+
+<!---main--->
+    
+
+    <div class="contact-w3">
+        <div class="contact-header">
+            <h2>Ask for a vacation</h2>
+        </div>
+        <hr/>
+        <br/>
+        
+        @using (Html.BeginForm("Vacation", "MyProfile", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+         
+            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.UserId)
+        
+            @Html.LabelFor(model => model.Username)
+           
+            @Html.EditorFor(model => model.Username)
+         
+       
+            <div class="row">
+                <div class="contact-left-w3">
+                 
+                    @Html.LabelFor(model => model.StartDate)
+                 
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { id = "datepicker1", Value = "Choose start date", @class = "form-control", onkeydown = "return false", onpaste = "return false" } })
+                    @Html.ValidationMessageFor(model => model.StartDate)
+                </div>
+                <div class="contact-right-w3l">
+                    
+                    @Html.LabelFor(model => model.EndDate)
+
+                    @Html.EditorFor(model => model.EndDate, new {htmlAttributes = new {id = "datepicker2", Value = "Choose end date", @class = "form-control", onkeydown = "return false", onpaste = "return false"}})
+                    @Html.ValidationMessageFor(model => model.EndDate)
+                </div>
+                <div class="clear"></div>
+            </div>
+            <input type="submit" value="Ask for a vacation">
+            @*<br/>
+            @Html.ActionLink("Back", "MyProfile/" + Model.UserId)*@
+        }
+        
+    </div>
+    <br />
+    <br />
+    <div style="margin-left: 20%; color: green; font-size: 1em">@ViewBag.Approved</div>
+    <div style="margin-left: 20%; color: red; font-size: 1em">@ViewBag.Rejected</div>
+    <div style="margin-left: 40%; color: black; font-size: 1em">@ViewBag.Pending</div>
+    <div style="margin-left: 38%; color: green; font-size: 1em">@ViewBag.Success</div>
+
+    
+<script type="text/javascript">
+    
+    $(function () {
+        $("#datepicker1").datepicker({
+            dateFormat: 'yy-M-dd' 
+        });
+    });
+
+    $(function () {
+        $("#datepicker2").datepicker({
+            dateFormat: 'yy-M-dd' 
+        });
+    });
+
+</script>    

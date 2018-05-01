@@ -1,0 +1,142 @@
+﻿@using Itc.Am.Common.ViewModels
+@using Type = Itc.Am.Common.Models.Type
+@model Itc.Am.Common.ViewModels.AllReportsVm
+
+    <style>
+        .paging-nav {
+            text-align: right;
+            padding-top: 2px;
+        }
+
+            .paging-nav a {
+                margin: auto 1px;
+                text-decoration: none;
+                display: inline-block;
+                padding: 1px 7px;
+                background: #91b9e6;
+                color: white;
+                border-radius: 3px;
+            }
+
+            .paging-nav .selected-page {
+                background: #187ed5;
+                font-weight: bold;
+            }
+
+        .paging-nav,
+        #tableData {
+            width: 100%;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+
+
+    @{
+        Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    }
+
+<h2>Reports</h2>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="users">
+                                
+                              @*   @Html.DropDownListFor(model => model.Record.UserId, (IEnumerable<SelectListItem>)ViewBag.UserId, "Select User", new { @class = "col-md-2" })*@ 
+                           
+                                @*@Html.DropDownList("Select User", ViewBag.getUsersId as SelectList, "Select User", new { @class = "dropdown" })*@
+
+                                <br />
+
+                                <table id="tableData" class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Record.Id)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Record.UserId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Record.Info)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Record.Type)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Record.Date)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Record.Time)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+
+
+                                    @foreach (var item in Model.Records)
+                                    {
+                                        <tr class="Other">
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UserId, new { @class = "userid" })
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Info)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Type)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Date)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Time)
+                                            </td>
+                                            @*<td>
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.UserId })
+                                            </td>*@
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+        $('#tableData').paging({limit:10});
+    });
+
+    //var val;
+
+    //$('.dropdown').change(function() {
+
+    //    val = $('.dropdown option:selected').val();
+        
+    //    //console.log(val);
+
+    //    $('#tableData tr').each(function () {
+           
+    //        //var cell = $(this).find('td:eq(1)').val();
+    //        var $cell = $(this).find("td:eq(1)").text();
+    //        var $row = $(this);
+
+
+    //        if ($cell !== val) {
+    //            console.log("cell is: " + $cell);
+    //            console.log("val is: " + val);
+    //            $(this).hide();
+    //        } else {
+    //            $(this).show();
+    //        }
+
+    //    });
+    //});
+
+    
+
+</script>

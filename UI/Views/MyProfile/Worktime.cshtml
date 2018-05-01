@@ -1,0 +1,137 @@
+﻿@using Itc.Am.Common.ViewModels
+@using Type = Itc.Am.Common.Models.Type
+@model Itc.Am.Common.ViewModels.WorktimeRecordVm
+
+@{
+    Layout = "~/Views/Shared/_Layout_User.cshtml";
+}
+
+
+    <div class="col-md-6">
+        @using (Html.BeginForm("Worktime", "MyProfile", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            
+            <div>
+                <h3>Arrival</h3>
+                <br />
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.UserId)
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { id = "date-picker", Value = "", @class = "form-control", onkeydown = "return false", onpaste = "return false" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Time, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Time, new { htmlAttributes = new { id = "time-picker", Value = "", @class = "form-control", onkeydown = "return false", onpaste = "return false" } })
+                     
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Info, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Info, new {id = "mailbox", style = "resize: none; width: 300px"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Type, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(model => model.Type)
+                    </div>
+                </div>
+
+
+                <div>
+                    <input type="submit" value="Save" class="btn btn-default"/>
+                    @Html.ActionLink("Back", "MyProfile/" + Model.UserId)
+                </div>
+
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        @using (Html.BeginForm("Departure", "MyProfile", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            
+            <div>
+                <h3>Departure</h3>
+                <br />
+                @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.UserId)
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { id = "date-picker2", Value = "", @class = "form-control date-picker2", onkeydown = "return false", onpaste = "return false" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Time, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Time, new { htmlAttributes = new { id = "time-picker2", Value = "", @class = "form-control time-picker2", onkeydown = "return false", onpaste = "return false" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Info, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Info, new {id = "mailbox", style = "resize: none; width: 300px"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Type, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EnumDropDownListFor(model => model.Type)
+                    </div>
+                </div>
+
+
+                <div>
+                    <input type="submit" value="Save" class="btn btn-default"/>
+                    @Html.ActionLink("Back", "MyProfile/" + Model.UserId)
+                </div>
+
+            </div>
+        }
+    </div>
+
+
+<script type="text/javascript">
+    
+    $(function () {
+        $("#date-picker").datepicker({
+            dateFormat: 'yy-M-dd' 
+        });
+
+        $("#time-picker").timepicker({
+            dateFormat: 'HH-mm-ss'
+        });
+    });
+
+    $(function () {
+        $("#date-picker2").datepicker({
+            dateFormat: 'yy-M-dd' 
+        });
+
+        $("#time-picker2").timepicker({
+            dateFormat: 'HH-mm-ss'
+        });
+    });
+
+</script>    

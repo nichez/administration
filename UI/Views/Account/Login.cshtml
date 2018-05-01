@@ -1,0 +1,19 @@
+﻿@model Itc.Am.Common.ViewModels.UserLoginVm
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    @Html.ValidationSummary("", new {@class = "text-danger"})
+
+    <div class="header" id="form1">
+        @Html.LabelFor(m => m.Email)
+
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+    <div class="header" id="form2">
+        @Html.LabelFor(m => m.Password)
+
+        @Html.PasswordFor(m => m.Password)
+    </div>
+    <div class="header" id="submit1">
+        <input id="button1" type="submit" value="Login"/>
+    </div>
+}

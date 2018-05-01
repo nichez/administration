@@ -1,0 +1,81 @@
+﻿@model Itc.Am.Common.ViewModels.UserVm
+<!doctype html>
+<html>
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <link href="~/css/Bootstrap.css" rel="stylesheet" />
+    <link href="~/css/registerpage.css" rel="stylesheet" />
+</head>
+<body style="height: 785px">
+
+<div class="headerx">
+</div>
+
+<div class="header">
+    <div class="logo header">
+        <a class="logo" href="Register"><span>facebook</span></a>
+    </div>
+    @{ Html.RenderPartial("Login");}
+    
+        @Html.ActionLink("Forgot Password", "ForgotPassword")
+    
+</div>
+    
+ 
+<div class="bodyx">
+    <div id="intro1" class="bodyx">Connect and share with people<br>from all around the world.</div>
+    <div id="intro2" class="bodyx">Create an account</div>
+    <div id="image" class="bodyx"><img src="/Images/img1.png" /></div>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="bodyx" id="form3">
+        @Html.ValidationSummary("", new {@class = "text-danger"})
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { id = "mailbox", placeholder = "E-mail" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Username, new { id = "mailbox", placeholder = "Username" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.FirstName, new {id = "mailbox", placeholder ="First Name"})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.LastName, new {id = "mailbox", placeholder = "Last Name"})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new {id = "mailbox", placeholder = "Password"})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new {id = "mailbox", placeholder = "Confirm Password"})
+            </div>
+        </div>
+        <div>
+            <input id="signup" type="submit" value="Sign Up"/>
+        </div>
+    </div>
+}
+</div>
+    
+<div class="body1">
+    <div class="footer">2017@All Copyrights Reserved</div>
+</div>  
+
+<script src="~/js/site.js"></script>
+</body>
+</html>
+
+
+

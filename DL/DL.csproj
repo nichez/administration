@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{37317D18-99B5-4576-A1D3-DC42BF1B059E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Itc.Am.DL</RootNamespace>
+    <AssemblyName>Itc.Am.DL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.3.1.0\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.0.0\lib\net45\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.0.1\lib\net45\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Interfaces\IAddressRepository.cs" />
+    <Compile Include="Interfaces\IDbFactory.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
+    <Compile Include="Interfaces\IUserAddressRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\IVacationRepository.cs" />
+    <Compile Include="Interfaces\IWorktimeRepository.cs" />
+    <Compile Include="Migrations\201704241223452_Init.cs" />
+    <Compile Include="Migrations\201704241223452_Init.Designer.cs">
+      <DependentUpon>201704241223452_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704241412410_AddRememberMe.cs" />
+    <Compile Include="Migrations\201704241412410_AddRememberMe.Designer.cs">
+      <DependentUpon>201704241412410_AddRememberMe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704270727200_AddRole.cs" />
+    <Compile Include="Migrations\201704270727200_AddRole.Designer.cs">
+      <DependentUpon>201704270727200_AddRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705031208474_NewFields.cs" />
+    <Compile Include="Migrations\201705031208474_NewFields.Designer.cs">
+      <DependentUpon>201705031208474_NewFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705041140038_Email.cs" />
+    <Compile Include="Migrations\201705041140038_Email.Designer.cs">
+      <DependentUpon>201705041140038_Email.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050843467_RemovedAttr.cs" />
+    <Compile Include="Migrations\201705050843467_RemovedAttr.Designer.cs">
+      <DependentUpon>201705050843467_RemovedAttr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051310217_Address.cs" />
+    <Compile Include="Migrations\201705051310217_Address.Designer.cs">
+      <DependentUpon>201705051310217_Address.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705051330493_UserAddress.cs" />
+    <Compile Include="Migrations\201705051330493_UserAddress.Designer.cs">
+      <DependentUpon>201705051330493_UserAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705080914557_ChangeModel.cs" />
+    <Compile Include="Migrations\201705080914557_ChangeModel.Designer.cs">
+      <DependentUpon>201705080914557_ChangeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705110907565_UserModelToUser.cs" />
+    <Compile Include="Migrations\201705110907565_UserModelToUser.Designer.cs">
+      <DependentUpon>201705110907565_UserModelToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705121130325_VCodeAdded.cs" />
+    <Compile Include="Migrations\201705121130325_VCodeAdded.Designer.cs">
+      <DependentUpon>201705121130325_VCodeAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705151147257_Membership.cs" />
+    <Compile Include="Migrations\201705151147257_Membership.Designer.cs">
+      <DependentUpon>201705151147257_Membership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705151329180_RemoveMembership.cs" />
+    <Compile Include="Migrations\201705151329180_RemoveMembership.Designer.cs">
+      <DependentUpon>201705151329180_RemoveMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705151401571_Roles.cs" />
+    <Compile Include="Migrations\201705151401571_Roles.Designer.cs">
+      <DependentUpon>201705151401571_Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705151417168_UserRole.cs" />
+    <Compile Include="Migrations\201705151417168_UserRole.Designer.cs">
+      <DependentUpon>201705151417168_UserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705160847429_UserDateTime.cs" />
+    <Compile Include="Migrations\201705160847429_UserDateTime.Designer.cs">
+      <DependentUpon>201705160847429_UserDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221443265_UserAddIdentity.cs" />
+    <Compile Include="Migrations\201705221443265_UserAddIdentity.Designer.cs">
+      <DependentUpon>201705221443265_UserAddIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705230943154_UsAdd.cs" />
+    <Compile Include="Migrations\201705230943154_UsAdd.Designer.cs">
+      <DependentUpon>201705230943154_UsAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705260758158_AddressUpdate.cs" />
+    <Compile Include="Migrations\201705260758158_AddressUpdate.Designer.cs">
+      <DependentUpon>201705260758158_AddressUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705260843220_AddressUserId.cs" />
+    <Compile Include="Migrations\201705260843220_AddressUserId.Designer.cs">
+      <DependentUpon>201705260843220_AddressUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705260848258_AddUserId.cs" />
+    <Compile Include="Migrations\201705260848258_AddUserId.Designer.cs">
+      <DependentUpon>201705260848258_AddUserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705261049536_RemoveId.cs" />
+    <Compile Include="Migrations\201705261049536_RemoveId.Designer.cs">
+      <DependentUpon>201705261049536_RemoveId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705290853185_WorktimeRecord.cs" />
+    <Compile Include="Migrations\201705290853185_WorktimeRecord.Designer.cs">
+      <DependentUpon>201705290853185_WorktimeRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705290855294_WorktimeRecord1.cs" />
+    <Compile Include="Migrations\201705290855294_WorktimeRecord1.Designer.cs">
+      <DependentUpon>201705290855294_WorktimeRecord1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705290958505_WorktimeChanges.cs" />
+    <Compile Include="Migrations\201705290958505_WorktimeChanges.Designer.cs">
+      <DependentUpon>201705290958505_WorktimeChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706060823233_WTime.cs" />
+    <Compile Include="Migrations\201706060823233_WTime.Designer.cs">
+      <DependentUpon>201706060823233_WTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051109528_Vacation.cs" />
+    <Compile Include="Migrations\201707051109528_Vacation.Designer.cs">
+      <DependentUpon>201707051109528_Vacation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707051207357_VacationUpdate.cs" />
+    <Compile Include="Migrations\201707051207357_VacationUpdate.Designer.cs">
+      <DependentUpon>201707051207357_VacationUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707060826152_VacUpdate2.cs" />
+    <Compile Include="Migrations\201707060826152_VacUpdate2.Designer.cs">
+      <DependentUpon>201707060826152_VacUpdate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707061140378_VacUpdate3.cs" />
+    <Compile Include="Migrations\201707061140378_VacUpdate3.Designer.cs">
+      <DependentUpon>201707061140378_VacUpdate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AddressRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\UserAddressRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\VacationRepository.cs" />
+    <Compile Include="Repositories\WorktimeRepository.cs" />
+    <Compile Include="StoreEntities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{fed85df1-6840-4e02-8833-74e36405f30b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704241223452_Init.resx">
+      <DependentUpon>201704241223452_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704241412410_AddRememberMe.resx">
+      <DependentUpon>201704241412410_AddRememberMe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704270727200_AddRole.resx">
+      <DependentUpon>201704270727200_AddRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705031208474_NewFields.resx">
+      <DependentUpon>201705031208474_NewFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041140038_Email.resx">
+      <DependentUpon>201705041140038_Email.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050843467_RemovedAttr.resx">
+      <DependentUpon>201705050843467_RemovedAttr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051310217_Address.resx">
+      <DependentUpon>201705051310217_Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705051330493_UserAddress.resx">
+      <DependentUpon>201705051330493_UserAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705080914557_ChangeModel.resx">
+      <DependentUpon>201705080914557_ChangeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705110907565_UserModelToUser.resx">
+      <DependentUpon>201705110907565_UserModelToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705121130325_VCodeAdded.resx">
+      <DependentUpon>201705121130325_VCodeAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705151147257_Membership.resx">
+      <DependentUpon>201705151147257_Membership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705151329180_RemoveMembership.resx">
+      <DependentUpon>201705151329180_RemoveMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705151401571_Roles.resx">
+      <DependentUpon>201705151401571_Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705151417168_UserRole.resx">
+      <DependentUpon>201705151417168_UserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705160847429_UserDateTime.resx">
+      <DependentUpon>201705160847429_UserDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221443265_UserAddIdentity.resx">
+      <DependentUpon>201705221443265_UserAddIdentity.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705230943154_UsAdd.resx">
+      <DependentUpon>201705230943154_UsAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705260758158_AddressUpdate.resx">
+      <DependentUpon>201705260758158_AddressUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705260843220_AddressUserId.resx">
+      <DependentUpon>201705260843220_AddressUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705260848258_AddUserId.resx">
+      <DependentUpon>201705260848258_AddUserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705261049536_RemoveId.resx">
+      <DependentUpon>201705261049536_RemoveId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705290853185_WorktimeRecord.resx">
+      <DependentUpon>201705290853185_WorktimeRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705290855294_WorktimeRecord1.resx">
+      <DependentUpon>201705290855294_WorktimeRecord1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705290958505_WorktimeChanges.resx">
+      <DependentUpon>201705290958505_WorktimeChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706060823233_WTime.resx">
+      <DependentUpon>201706060823233_WTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051109528_Vacation.resx">
+      <DependentUpon>201707051109528_Vacation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707051207357_VacationUpdate.resx">
+      <DependentUpon>201707051207357_VacationUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707060826152_VacUpdate2.resx">
+      <DependentUpon>201707060826152_VacUpdate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707061140378_VacUpdate3.resx">
+      <DependentUpon>201707061140378_VacUpdate3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

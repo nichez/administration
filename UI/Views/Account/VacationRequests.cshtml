@@ -1,0 +1,183 @@
+﻿@using Itc.Am.Common.ViewModels
+@using Type = Itc.Am.Common.Models.Type
+@model Itc.Am.Common.ViewModels.VacsVm
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    @*<script src="~/js/paging.js"></script>*@
+    <link href="~/css/AllVacations.css" rel="stylesheet" />
+    <style>
+        .paging-nav {
+            text-align: right;
+            padding-top: 2px;
+        }
+
+        .paging-nav a {
+            margin: auto 1px;
+            text-decoration: none;
+            display: inline-block;
+            padding: 1px 7px;
+            border-radius: 3px;
+        }
+
+        .paging-nav .selected-page {
+            font-weight: bold;
+        }
+
+        .paging-nav,
+        #tableData {
+            width: 100%;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+
+
+@{
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+
+    <h2>Vacation Requests</h2>
+<div class="tbl-content">
+    <table class="vacTable" cellpadding="0" cellspacing="0" border="0">
+       
+                <thead>
+                    <tr>
+                        <th style="font-weight: bold">
+                            @Html.DisplayNameFor(model => model.Vac.Id)
+                        </th>
+                        <th style="font-weight: bold">
+                            @Html.DisplayNameFor(model => model.Vac.UserId)
+                        </th>
+                        <th style="font-weight: bold">
+                            @Html.DisplayNameFor(model => model.Vac.StartDate)
+                        </th>
+                        <th style="font-weight: bold">
+                           @Html.DisplayNameFor(model => model.Vac.EndDate)
+                        </th>
+                        <th style="font-weight: bold">
+                            @Html.DisplayNameFor(model => model.Vac.Status)
+                        </th>
+                        <th style="font-weight: bold">Approval</th>
+                    </tr>
+                </thead>
+         
+    
+            <tbody>
+                @foreach (var item in Model.Vacations)
+                {
+                <tr class="Other">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id, new { @class = "item-id" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserId, new { @class = "userid" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>
+                    <td>
+                        @Html.EnumDropDownListFor(modelItem => item.Status, new { @class = "item-status" })
+                    </td>       
+                    <td>
+                        <a class="edit">Save</a>
+                        @Html.ActionLink("Delete", "DeleteVacation", new { id = item.Id })
+                    </td>
+                    @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.UserId })
+                    </td>*@
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+
+<script type="text/javascript">
+    
+    $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({ 'padding-right': scrollWidth });
+
+        $(".vacTable tr").each(function() {
+            var $this = $(this);
+            var statusVal = $this.find('td:nth-child(5)').find(":selected").text().trim();
+            console.log(statusVal);
+            if (statusVal == "Pending") {
+                console.log('prvoto');
+                $this.find('td:nth-child(6)').css("display", "block");
+            } else {
+                console.log('vtoro');
+                $this.find('td:nth-child(6)').css("display", "none");
+            }
+
+        });
+
+    }).resize();
+
+
+     $('.edit').hover(function () {
+                $(this).css('cursor', 'pointer');
+    });
+
+
+    $(function() {
+        $( ".item-status" ).change(function() {
+                var $this = $(this);
+                var statusVal = $this.find(":selected").text().trim();
+            console.log("statusVal is: " + statusVal);
+            if (statusVal !== "Pending") {
+                console.log("pendiiiiiiing");
+                    $this.closest('tr').find('td:nth-child(6)').css("display", "block");
+            } else {
+                console.log("vtorotoooo else");
+
+                    $this.closest('tr').find('td:nth-child(6)').css("display", "none");
+                }
+        });
+        
+
+     });
+    
+
+            $('.edit').click(function () {
+                var currentTD = $(this).parents('tr').find('td');
+                if ($(this).html() == 'Save') {
+                    
+                    var ID = $('td:first', $(this).parents('tr')).text();
+                    var IdUser = $('td:nth-child(2)', $(this).parents('tr')).text();
+                    var Stat = $('td:nth-child(5)', $(this).parents('tr')).find(":selected").text();
+
+                    if (Stat == "Accepted" || Stat == "Rejected") {
+                        $('td:nth-child(6)', $(this).parents('tr')).css("display", "none");
+                    } else {
+                        $this.find('td:nth-child(6)').css("display", "block");
+                    }
+                    
+                    console.log("ID is: " + ID);
+                    console.log("IdUser is: " + IdUser);
+                    console.log("Stat is: " + Stat);
+
+                    $.ajax(
+                        {
+                            type: "POST", //HTTP POST Method  
+                            url: "/Account/EditVac", // Controller/View   
+                            data: { 
+                                Id: ID,
+                                UserId: IdUser,
+                                Status: Stat
+                            }
+                        });  
+
+                }
+              
+            });
+    
+    
+</script>
+
